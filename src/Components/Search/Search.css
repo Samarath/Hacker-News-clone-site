@@ -1,0 +1,48 @@
+.search input{
+    font-size: 1rem;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    width: 100%;
+}
+
+.search input:focus{
+    outline: none;
+}
+
+.search .inp{
+    display: flex;
+    background-color: white;
+    flex: 1;
+    align-items: center;
+
+}
+.search{
+    display: flex;
+    background-color: rgb(247, 107, 57);
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+span{
+    padding: 10px;
+}
+
+.icon{
+    color: rgb(247, 107, 57);
+    font-size: 2rem;
+    padding: 5px;
+}
+
+.icon1{
+    color: white;
+    font-size: 2.5rem;
+    border: 1px solid white;
+    padding: 5px;
+}
+
+.user{
+    font-size: 1.2rem;
+    color: white;
+}

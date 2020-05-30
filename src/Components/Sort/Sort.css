@@ -1,0 +1,28 @@
+select{
+    border: 1px solid lightgray;
+    font-size: 0.9rem;
+    outline: 0;
+    background-image: none;
+    padding: 0 .5em;
+}
+
+.srt{
+    margin: 10px;
+}
+
+@media only screen and (max-width: 768px){
+    span{
+        display: none;
+    }
+    select{
+        font-size: 0.6rem;
+        margin: 0 5px;
+    }
+
+    .srt{
+        display: flex;
+        font-size: 0.8rem;
+        justify-content: flex-end;
+        margin: 0 5px;
+    }
+}

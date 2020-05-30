@@ -1,0 +1,20 @@
+.ft ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ft ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.ft ul li{
+    padding: 0 15px;
+    list-style-type: none;
+}
+
+.ft{
+    margin: 0 50px;
+}
