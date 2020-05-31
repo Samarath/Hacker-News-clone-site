@@ -5,7 +5,7 @@ import { FaSearch, FaHeading } from "react-icons/fa";
 import { IconContext } from "react-icons";
 
 const Search = (props) => {
-    const {querySearch} = props;
+    const {querySearch, logout} = props;
     let username = props.name;
 
     if(username.length > 5){
@@ -28,6 +28,7 @@ const Search = (props) => {
                 </div>
              </IconContext.Provider>
                   <input type="text" placeholder="Search stories by title, url or author" onChange={(e) => querySearch(e.target.value)}/>
+                  <p className='log' onClick={logout}>Logout</p>
             </div>      
             
         </div>

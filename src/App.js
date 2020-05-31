@@ -1,18 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import Search from './Components/Search/Search'
-import Sort from './Components/Sort/Sort'
 import Body from './Components/Body/Body';
 import Footer from './Components/Footer/Footer'
 import './App.css';
 import Signin from './Components/SignIn/SignIn';
 import 'tachyons';
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
-
 
 const App = () => {
-  const [blogs, setBlogs] = useState([]);
-  const [filters, setFilters] = useState('');
+  // const [filters, setFilters] = useState('');
+  const [blogs, setPage1] = useState([]);
   const [login, setLogin] = useState([]);
+  // const [secondPage, setPage2] = useEffect([]);
+  // const [thirdPage, setPage3] = useEffect([]);
+  // const [forthPage, setPage4] = useEffect([]);
+  // const [fifthPage, setPage5] = useEffect([]);
 
   useEffect(() => {
     querySearch();
@@ -25,39 +26,29 @@ const App = () => {
       query = event;
     }
 
-  //  axios.all([
-  //     axios.get(`search?query=${query}&tags=story&page=1`),
-  //     axios.get(`search?query=${query}&tags=story&page=2`),
-  //     axios.get(`search?query=${query}&tags=story&page=3`),
-  //     axios.get(`search?query=${query}&tags=story&page=4`),
-  //     axios.get(`search?query=${query}&tags=story&page=5`)
-  //   ])
-  //   .then(axios.spread(page1, page2, page3, page4, page5) => {
 
-  //   })
-    axios.all([axios.get(`search?query=${query}&tags=story&page=1`),
-           axios.get(`search?query=${query}&tags=story&page=2`),
-           axios.get(`search?query=${query}&tags=story&page=3`)])
-     .then(axios.spread((firstResponse, secondResponse, thirdResponse) => {  
-         console.log(firstResponse.data,secondResponse.data, thirdResponse.data);
-     }))
-     .catch(error => console.log(error));
-
-  //  axios.get(`search?query=${query}&tags=story&page=2`)
-  // .then(function (response) {
-  //   setBlogs(response.data.hits);
-  //   console.log('page 2');
-  //  })
-  //  .catch(function (error) {
-  //     console.log(error);
-  //  })
-  }
-
-  const searchBy = (value) => {
-    console.log(value);
-    setFilters(value);
+   axios.get(`/search?query=${query}&tags=story`)
+  .then(function (response) {
+    // handle success
+    console.log(response);
+    setPage1(response.data.hits)
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
 
   }
+
+  const logout = () => {
+    setLogin([]);
+  }
+
+  // const searchBy = (value) => {
+  //   console.log(value);
+  //   setFilters(value);
+
+  // }
 
   const detail = (details) => {
     setLogin(() => details);
@@ -68,12 +59,10 @@ const App = () => {
       login.length === 0? <Signin detail={detail} />
       :
       <div>
-      <BrowserRouter>
       <div className='main'>
-        <Search querySearch={querySearch} name={login[0]}/>
+         <Search querySearch={querySearch} name={login[0]} logout={logout}/>
          <Body blogs={blogs}/>
        </div>
-       </BrowserRouter>
        <Footer/>
       </div>
     )

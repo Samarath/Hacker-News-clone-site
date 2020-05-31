@@ -1,18 +1,13 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import Body from '../Body/Body'
+import {Link} from 'react-router-dom'
 
 const Paginaion = () => {
     return(
-        <BrowserRouter>
         <div>
-           <Switch>
-               <Route path='page=0' component={Body}/>
-               <Body blogs={blogs}/>
-           </Switch> 
-           
-         </div>
-         </BrowserRouter>
+           <ul>
+              <li><Link to='/2'>Page1</Link></li> 
+           </ul> 
+        </div>
     )
 }
 export default Paginaion;

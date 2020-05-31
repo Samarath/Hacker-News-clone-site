@@ -2,7 +2,9 @@ import React from 'react';
 import './body.css'
 
 const Body = (props) => {
-    const {blogs} = props;
+    const  {blogs} = props;
+
+    console.log(blogs)
 
     const mapped = blogs.map((items, i) => {
         const storyTitle = items.title;
@@ -22,6 +24,7 @@ const Body = (props) => {
     })
     return (
        mapped.length === 0? '':mapped
+        // <h1>heelo</h1>
     )
 }
 

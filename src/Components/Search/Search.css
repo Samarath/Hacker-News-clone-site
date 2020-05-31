@@ -15,7 +15,18 @@
     background-color: white;
     flex: 1;
     align-items: center;
+    justify-content: center;
 
+}
+
+.search .inp p{
+    margin: 0;
+    color: rgb(247, 107, 57);
+    padding: 5px;
+}
+
+.log{
+    cursor: pointer;
 }
 .search{
     display: flex;
