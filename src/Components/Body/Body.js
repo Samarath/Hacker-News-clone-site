@@ -7,19 +7,27 @@ const Body = (props) => {
     console.log(blogs)
 
     const mapped = blogs.map((items, i) => {
-        const storyTitle = items.title;
-        const url = items.url;
+        
+        let url = items.url;
         const id = items.points;
         const author = items.author;
         const comment = items.num_comments;
+        let storyTitle = items.title;
 
-        return storyTitle !== ''? (
+        if(items.comment_text !== null){
+
+            url = items.story_url
+            storyTitle = items.comment_text
+
+        }
+
+        return (
             <div key={i} className='blg'>
               <h6><a href={url}>{storyTitle}</a></h6>
               <span className='user'>(<a href={url}>{url}</a>)</span>
               <p><a href={url}>{id} points</a> | <a href={url}>{author}</a> | <a href={url}>{comment} comments</a></p>
             </div>
-        ): true
+        )
         
     })
     return (

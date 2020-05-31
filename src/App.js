@@ -5,36 +5,35 @@ import Footer from './Components/Footer/Footer'
 import './App.css';
 import Signin from './Components/SignIn/SignIn';
 import 'tachyons';
+import Sort from './Components/Sort/Sort'
+import 'axios'
 
 const App = () => {
-  // const [filters, setFilters] = useState('');
+  
   const [blogs, setPage1] = useState([]);
   const [login, setLogin] = useState([]);
-  // const [secondPage, setPage2] = useEffect([]);
-  // const [thirdPage, setPage3] = useEffect([]);
-  // const [forthPage, setPage4] = useEffect([]);
-  // const [fifthPage, setPage5] = useEffect([]);
+  const [filter, setFilters] = useState('');
+  const [qury, setqry] = useState('');
 
   useEffect(() => {
     querySearch();
   }, []);
 
   const querySearch = (event) => {
+
     const axios = require('axios');
     let query = ' ';
     if(event !== ''){
       query = event;
+      setqry(event);
     }
 
 
-   axios.get(`/search?query=${query}&tags=story`)
+   axios.get(`/search?query=${query}&tags=${filter}`)
   .then(function (response) {
-    // handle success
-    console.log(response);
     setPage1(response.data.hits)
   })
   .catch(function (error) {
-    // handle error
     console.log(error);
   })
 
@@ -44,11 +43,29 @@ const App = () => {
     setLogin([]);
   }
 
-  // const searchBy = (value) => {
-  //   console.log(value);
-  //   setFilters(value);
+  const searchBy = (value) => {
 
-  // }
+    fetch(`/search?query=${qury}&tags=${value}`)
+    .then(response => response.json())
+    .then(res => setPage1(res.hits));
+
+    setFilters(value);
+
+  }
+
+  const searchBy1 = (value) => {
+    if(value === 'reset'){
+
+      fetch(`/search?query=${qury}&tags=${filter}`)
+      .then(response => response.json())
+      .then(res => setPage1(res.hits))
+
+    }else {
+      fetch(`/search_by_date?query=${qury}`)
+      .then(response => response.json())
+      .then(res => setPage1(res.hits))
+    }
+  }
 
   const detail = (details) => {
     setLogin(() => details);
@@ -61,6 +78,7 @@ const App = () => {
       <div>
       <div className='main'>
          <Search querySearch={querySearch} name={login[0]} logout={logout}/>
+         <Sort searchBy={searchBy} searchBy1={searchBy1}/>
          <Body blogs={blogs}/>
        </div>
        <Footer/>
