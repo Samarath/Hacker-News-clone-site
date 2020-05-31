@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Search from './Components/Search/Search'
 import Sort from './Components/Sort/Sort'
 import Body from './Components/Body/Body';
@@ -11,36 +11,52 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 const App = () => {
   const [blogs, setBlogs] = useState([]);
-  const [filters, setFilters] = useState('story');
-  const [filters1, setFilters1] = useState('popularity');
-  const [filters2, setFilters2] = useState('all');
+  const [filters, setFilters] = useState('');
   const [login, setLogin] = useState([]);
+
+  useEffect(() => {
+    querySearch();
+  }, []);
 
   const querySearch = (event) => {
     const axios = require('axios');
- 
-// Make a request for a user with a given ID
-axios.get(`/search_by_date?query=${event.target.value}`)
-  .then(function (response) {
-    // handle success
-    setBlogs(response.data.hits);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
+    let query = ' ';
+    if(event !== ''){
+      query = event;
+    }
+
+  //  axios.all([
+  //     axios.get(`search?query=${query}&tags=story&page=1`),
+  //     axios.get(`search?query=${query}&tags=story&page=2`),
+  //     axios.get(`search?query=${query}&tags=story&page=3`),
+  //     axios.get(`search?query=${query}&tags=story&page=4`),
+  //     axios.get(`search?query=${query}&tags=story&page=5`)
+  //   ])
+  //   .then(axios.spread(page1, page2, page3, page4, page5) => {
+
+  //   })
+    axios.all([axios.get(`search?query=${query}&tags=story&page=1`),
+           axios.get(`search?query=${query}&tags=story&page=2`),
+           axios.get(`search?query=${query}&tags=story&page=3`)])
+     .then(axios.spread((firstResponse, secondResponse, thirdResponse) => {  
+         console.log(firstResponse.data,secondResponse.data, thirdResponse.data);
+     }))
+     .catch(error => console.log(error));
+
+  //  axios.get(`search?query=${query}&tags=story&page=2`)
+  // .then(function (response) {
+  //   setBlogs(response.data.hits);
+  //   console.log('page 2');
+  //  })
+  //  .catch(function (error) {
+  //     console.log(error);
+  //  })
   }
 
   const searchBy = (value) => {
+    console.log(value);
     setFilters(value);
-  }
 
-  const searchBy1 = (value) => {
-    setFilters1(value);
-  }
-
-  const searchBy2 = (value) => {
-    setFilters2(value);
   }
 
   const detail = (details) => {
@@ -55,11 +71,6 @@ axios.get(`/search_by_date?query=${event.target.value}`)
       <BrowserRouter>
       <div className='main'>
         <Search querySearch={querySearch} name={login[0]}/>
-        <Sort 
-          searchBy={searchBy}
-          searchBy1={searchBy1}
-          searchBy2={searchBy2}
-         />
          <Body blogs={blogs}/>
        </div>
        </BrowserRouter>

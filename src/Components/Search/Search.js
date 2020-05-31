@@ -27,7 +27,7 @@ const Search = (props) => {
                     <FaSearch />
                 </div>
              </IconContext.Provider>
-                  <input type="text" placeholder="Search stories by title, url or author" onChange={(e) => querySearch(e)}/>
+                  <input type="text" placeholder="Search stories by title, url or author" onChange={(e) => querySearch(e.target.value)}/>
             </div>      
             
         </div>

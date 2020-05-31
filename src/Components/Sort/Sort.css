@@ -14,6 +14,9 @@ select{
     span{
         display: none;
     }
+    .user{
+        display: inline-block;
+    }
     select{
         font-size: 0.6rem;
         margin: 0 5px;
