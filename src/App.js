@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Search from './Components/Search/Search'
 import Body from './Components/Body/Body';
 import Footer from './Components/Footer/Footer'
