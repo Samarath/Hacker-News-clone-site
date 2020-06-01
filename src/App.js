@@ -15,9 +15,9 @@ const App = () => {
   const [filter, setFilters] = useState('');
   const [qury, setqry] = useState('');
 
-  useEffect(() => {
-    querySearch();
-  }, []);
+  // useEffect(() => {
+  //   querySearch();
+  // }, []);
 
   const querySearch = (event) => {
 
@@ -29,7 +29,7 @@ const App = () => {
     }
 
 
-   axios.get(`/search?query=${query}&tags=${filter}`)
+   axios.get(`http://hn.algolia.com/api/v1/search?query=${query}&tags=${filter}`)
   .then(function (response) {
     setPage1(response.data.hits)
   })
@@ -45,7 +45,7 @@ const App = () => {
 
   const searchBy = (value) => {
 
-    fetch(`/search?query=${qury}&tags=${value}`)
+    fetch(`http://hn.algolia.com/api/v1/search?query=${qury}&tags=${value}`)
     .then(response => response.json())
     .then(res => setPage1(res.hits));
 
@@ -56,12 +56,12 @@ const App = () => {
   const searchBy1 = (value) => {
     if(value === 'reset'){
 
-      fetch(`/search?query=${qury}&tags=${filter}`)
+      fetch(`http://hn.algolia.com/api/v1/search?query=${qury}&tags=${filter}`)
       .then(response => response.json())
       .then(res => setPage1(res.hits))
 
     }else {
-      fetch(`/search_by_date?query=${qury}`)
+      fetch(`http://hn.algolia.com/api/v1/search_by_date?query=${qury}`)
       .then(response => response.json())
       .then(res => setPage1(res.hits))
     }

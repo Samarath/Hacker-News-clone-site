@@ -12,13 +12,6 @@ const Body = (props) => {
         const comment = items.num_comments;
         let storyTitle = items.title;
 
-        if(items.comment_text !== null){
-
-            url = items.story_url
-            storyTitle = items.comment_text
-
-        }
-
         return (
             <div key={i} className='blg'>
               <h6><a href={url}>{storyTitle}</a></h6>
