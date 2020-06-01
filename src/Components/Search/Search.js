@@ -1,6 +1,5 @@
 import React from 'react';
 import './Search.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaSearch, FaHeading } from "react-icons/fa";
 import { IconContext } from "react-icons";
 
