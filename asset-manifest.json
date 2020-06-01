@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.d1b9073e.chunk.css",
-    "main.js": "/static/js/main.0f7ab2f2.chunk.js",
-    "main.js.map": "/static/js/main.0f7ab2f2.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.0da1e53a.js",
-    "runtime-main.js.map": "/static/js/runtime-main.0da1e53a.js.map",
-    "static/css/2.3c03f26f.chunk.css": "/static/css/2.3c03f26f.chunk.css",
-    "static/js/2.b7c91fb4.chunk.js": "/static/js/2.b7c91fb4.chunk.js",
-    "static/js/2.b7c91fb4.chunk.js.map": "/static/js/2.b7c91fb4.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.cd48988c04a57471044ab67eeeae5a97.js": "/precache-manifest.cd48988c04a57471044ab67eeeae5a97.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.3c03f26f.chunk.css.map": "/static/css/2.3c03f26f.chunk.css.map",
-    "static/css/main.d1b9073e.chunk.css.map": "/static/css/main.d1b9073e.chunk.css.map",
-    "static/js/2.b7c91fb4.chunk.js.LICENSE.txt": "/static/js/2.b7c91fb4.chunk.js.LICENSE.txt"
+    "main.css": "/Samarath/Hacker-News-clone-site/static/css/main.0219bcb7.chunk.css",
+    "main.js": "/Samarath/Hacker-News-clone-site/static/js/main.fa671902.chunk.js",
+    "main.js.map": "/Samarath/Hacker-News-clone-site/static/js/main.fa671902.chunk.js.map",
+    "runtime-main.js": "/Samarath/Hacker-News-clone-site/static/js/runtime-main.c4373b3b.js",
+    "runtime-main.js.map": "/Samarath/Hacker-News-clone-site/static/js/runtime-main.c4373b3b.js.map",
+    "static/css/2.3c03f26f.chunk.css": "/Samarath/Hacker-News-clone-site/static/css/2.3c03f26f.chunk.css",
+    "static/js/2.b7c91fb4.chunk.js": "/Samarath/Hacker-News-clone-site/static/js/2.b7c91fb4.chunk.js",
+    "static/js/2.b7c91fb4.chunk.js.map": "/Samarath/Hacker-News-clone-site/static/js/2.b7c91fb4.chunk.js.map",
+    "index.html": "/Samarath/Hacker-News-clone-site/index.html",
+    "precache-manifest.aa17ea04c9d3e48a240a00cb69481f35.js": "/Samarath/Hacker-News-clone-site/precache-manifest.aa17ea04c9d3e48a240a00cb69481f35.js",
+    "service-worker.js": "/Samarath/Hacker-News-clone-site/service-worker.js",
+    "static/css/2.3c03f26f.chunk.css.map": "/Samarath/Hacker-News-clone-site/static/css/2.3c03f26f.chunk.css.map",
+    "static/css/main.0219bcb7.chunk.css.map": "/Samarath/Hacker-News-clone-site/static/css/main.0219bcb7.chunk.css.map",
+    "static/js/2.b7c91fb4.chunk.js.LICENSE.txt": "/Samarath/Hacker-News-clone-site/static/js/2.b7c91fb4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.0da1e53a.js",
+    "static/js/runtime-main.c4373b3b.js",
     "static/css/2.3c03f26f.chunk.css",
     "static/js/2.b7c91fb4.chunk.js",
-    "static/css/main.d1b9073e.chunk.css",
-    "static/js/main.0f7ab2f2.chunk.js"
+    "static/css/main.0219bcb7.chunk.css",
+    "static/js/main.fa671902.chunk.js"
   ]
 }
