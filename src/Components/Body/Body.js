@@ -3,7 +3,7 @@ import './body.css'
 
 const Body = (props) => {
     const  {blogs} = props;
-
+    console.log(blogs)
     const mapped = blogs.map((items, i) => {
         
         let url = items.url;
